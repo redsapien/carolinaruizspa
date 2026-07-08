@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Ruiz | Psico Spa</title>
+
+    <meta name="description" content="Psico Spa en Manizales y Villamaría. Un refugio para pausar tu mundo, sanar y reconectar contigo. Agenda tu experiencia de bienestar.">
+    <meta name="keywords" content="Psico Spa, bienestar emocional, spa psicológico, Manizales, Villamaría, terapia alternativa, relajación, salud mental">
+    <meta name="author" content="Carolina Ruiz | Psico Spa">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Carolina Ruiz | Psico Spa">
+    <meta property="og:description" content="Un refugio para pausar tu mundo, sanar y reconectar contigo. Agenda tu experiencia de bienestar.">
+    <meta property="og:image" content="imagenes/Logo-Carolina-Ruiz-Psico-Spa.png">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="imagenes/Logo-Carolina-Ruiz-Psico-Spa.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600;800&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #3a6351;
+            --purple-mist: #7b72b8;
+            --dark: #0a0c0b;
+            --white: #ffffff;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --marker-color: #b5ffda;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            font-family: var(--font-main);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* HIGHLIGHT SPA */
+        .spa-highlight {
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .spa-highlight::after {
+            content: "";
+            position: absolute;
+            left: -2px;
+            bottom: 2px;
+            width: 0;
+            height: 40%;
+            background-color: var(--marker-color);
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(-1deg);
+            animation: markEntry 2s forwards 1.5s;
+        }
+
+        @keyframes markEntry {
+            to { width: calc(100% + 4px); }
+        }
+
+        /* HEADER */
+        .brand-header {
+            position: absolute;
+            top: clamp(20px, 5vw, 40px);
+            left: clamp(20px, 5vw, 40px);
+            z-index: 100;
+        }
+
+        .brand-logo {
+            width: clamp(60px, 10vw, 85px);
+            height: clamp(60px, 10vw, 85px);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* HERO MEDIA */
+        .hero-media {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.55) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(10,12,11,0.2), rgba(10,12,11,0.85));
+            z-index: 2;
+        }
+
+        /* HERO CONTENT */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            text-align: center;
+            transition: 0.8s ease;
+        }
+
+        .hero-content.blur-out {
+            filter: blur(20px);
+            transform: scale(0.9);
+            opacity: 0.3;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 10vw, 6.5rem);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+        }
+
+        h1 span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 4vw, 2.5rem);
+            font-style: italic;
+            letter-spacing: 4px;
+            color: #d1ccff;
+            margin-bottom: 15px;
+        }
+
+        .glass-para {
+            max-width: 600px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 25px 35px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* BOTÓN */
+        .btn-relax {
+            background: linear-gradient(45deg, var(--accent), var(--purple-mist));
+            padding: clamp(18px,3vw,24px) clamp(40px,8vw,65px);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transition: 0.5s;
+        }
+
+        .btn-relax:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(123,114,184,0.4);
+        }
+
+        /* MODAL */
+        .booking-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(12px);
+            z-index: 200;
+        }
+
+        .booking-card {
+            width: 100%;
+            max-width: 480px;
+            padding: clamp(30px,8vw,50px);
+            border-radius: 40px;
+            background: rgba(15,17,16,0.95);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative; /* Para el botón volver */
+        }
+
+        /* BOTÓN VOLVER */
+        .btn-back {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover { opacity: 1; }
+        
+        .btn-back svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+        .booking-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #d1ccff;
+            margin: 0 0 10px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: #b5ffda;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            outline: none;
+        }
+
+        .form-group input:focus { border-color: var(--purple-mist); }
+
+        .city-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .city-option {
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .city-option.active {
+            background: var(--accent);
+            border-color: #b5ffda;
+        }
+
+        #zen-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        @media (max-width: 480px) {
+            .brand-header {
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .city-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="brand-header">
+    <img src="imagenes/Logo-Carolina-Ruiz-Psico-Spa.png" alt="Psico Spa" class="brand-logo">
+</header>
+
+<div class="hero-media">
+    <video autoplay muted loop playsinline>
+        <source src="video/Fondo-Cr-Psico-Spa.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+</div>
+
+<canvas id="zen-canvas"></canvas>
+
+<main class="hero-content" id="main-content">
+    <h1>
+        <span>un secreto único cerca de ti</span>
+        PAUSA TU MUNDO.
+    </h1>
+
+    <div class="glass-para">
+        El refugio de <b>Psico Spa</b> que mereces en 
+        <span class="spa-highlight">Manizales</span> y 
+        <span class="spa-highlight">Villamaría</span>. 
+        Desconéctate para sanar de verdad.
+    </div>
+
+    <div class="btn-relax" onclick="openBooking()">SOLICITAR MI AGENDA</div>
+</main>
+
+<div class="booking-modal" id="bookingModal">
+    <div class="booking-card">
+        <div class="btn-back" onclick="closeBooking()">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            VOLVER
+        </div>
+
+        <div id="form-inner">
+            <h2>Plan Pareja 200.000 COP,✨...</h2>
+            <p class="subtitle">Cuéntanos de dónde eres para coordinar tu espacio.</p>
+
+            <div class="form-group">
+                <label>NOMBRE COMPLETO</label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="form-group">
+                <label>TU WHATSAPP</label>
+                <input type="tel" id="phone">
+            </div>
+
+            <div class="form-group">
+                <label>¿EN QUÉ CIUDAD TE ENCUENTRAS?</label>
+                <div class="city-selector">
+                    <div class="city-option" onclick="selectCity(this,'Manizales')">Manizales</div>
+                    <div class="city-option" onclick="selectCity(this,'Villamaría')">Villamaría</div>
+                </div>
+            </div>
+
+            <div class="btn-relax" style="width:100%;text-align:center" onclick="processBooking()">
+                VER DISPONIBILIDAD
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let selectedCity = "";
+
+    function selectCity(el, city) {
+        document.querySelectorAll('.city-option').forEach(o => o.classList.remove('active'));
+        el.classList.add('active');
+        selectedCity = city;
+    }
+
+    function openBooking() {
+        document.getElementById('bookingModal').style.display = 'flex';
+        document.getElementById('main-content').classList.add('blur-out');
+    }
+
+    function closeBooking() {
+        document.getElementById('bookingModal').style.display = 'none';
+        document.getElementById('main-content').classList.remove('blur-out');
+    }
+
+    function processBooking() {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        if (!name || !phone || !selectedCity) {
+            alert("Por favor completa los campos para agendarte.");
+            return;
+        }
+        const msg = encodeURIComponent(`Hola Carolina! ✨ Soy ${name}. Me encuentro en ${selectedCity}. Mi contacto es ${phone}.`);
+        window.location.href = `https://wa.me/573145780681?text=${msg}`;
+    }
+
+    const canvas = document.getElementById('zen-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height;
+            this.size = Math.random()*2;
+            this.speed = Math.random()*0.3 + 0.1;
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(209,204,255,0.2)';
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+            ctx.fill();
+        }
+        update() {
+            this.y -= this.speed;
+            if(this.y < 0) this.y = canvas.height;
+        }
+    }
+
+    function init() {
+        resize();
+        particles = [];
+        for(let i=0;i<40;i++) particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach(p=>{p.update();p.draw();});
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    init();
+    animate();
+</script>>
+
+<section id="parche-desconexion" class="ritual-section">
+    <div class="nebula-bg"></div>
+
+    <div class="section-container">
+        <header class="ritual-header">
+            <span class="pre-title">Un concepto único en Manizales</span>
+            <h2 class="main-title">EL PARCHE DE DESCONEXIÓN</h2>
+            <p class="tagline">Elige tu nivel de parche: desde un reset rápido hasta una experiencia grupal total.</p>
+        </header>
+
+        <div class="rituales-carousel">
+            <div class="glass-card">
+                <div class="card-aura"></div>
+                <div class="card-inner">
+                    <div class="ritual-symbol">💆🏻‍♀️</div>
+                    <h3>EXPERIENCIAS INDIVIDUALES</h3>
+                    <div class="price-list">
+                        <p>🔹 Masaje de espalda <span>$65k</span></p>
+                        <p>🔹 Espalda + Hidratación facial <span>$75k</span></p>
+                        <p>🔹 Pro: Espalda, manos, pies y facial <span>$90k</span></p>
+                        <p>🔹 VIP: Snack, vino y decoración <span>$100k</span></p>
+                        <p>🔹 Elite: Full Pack + Jacuzzi <span>$110k</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card active">
+                <div class="card-aura"></div>
+                <div class="card-inner">
+                    <div class="ritual-symbol">🥂</div>
+                    <h3>PLAN BÁSICO PARCHE</h3>
+                    <p class="desc-parche">Masaje espalda y cuello, hidratación facial, decoración, snack, vino y jacuzzi.</p>
+                    <div class="main-price">$200.000</div>
+                    <span class="price-detail">Parche para 2 personas | 2 horas</span>
+                    <span class="featured-badge">El más pedido</span>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-aura"></div>
+                <div class="card-inner">
+                    <div class="ritual-symbol">🧖‍♂️</div>
+                    <h3>PLAN PREMIUM</h3>
+                    <p class="desc-parche">Todo el Plan Básico + Masaje cuerpo completo (brazos, piernas y pies) + Soda o Michelada saborizada.</p>
+                    <div class="main-price">$280.000</div>
+                    <span class="price-detail">Parche para 2 personas | 2 horas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="parche-calculator">
+            <div class="calc-inner">
+                <h3>¿SON UN PARCHE MÁS GRANDE? 👥</h3>
+                <p>Calcula el valor exacto sumando personas (sin descuentos)</p>
+                <div class="calc-controls">
+                    <select id="tipo-plan">
+                        <option value="100000">Plan Básico ($100.000 p/p)</option>
+                        <option value="140000">Plan Premium ($140.000 p/p)</option>
+                    </select>
+                    <div class="counter">
+                        <button onclick="changeQty(-1)">-</button>
+                        <span id="qty">2</span>
+                        <button onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+                <div class="total-box">
+                    TOTAL: <span id="total-val">$200.000</span>
+                </div>
+                <button class="btn-relax" onclick="bookingParche()" style="width: 100%; margin-top: 20px;">RESERVAR PARCHE AHORA</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="wa-orbe" class="whatsapp-orbe">
+        <div class="orbe-waves"></div>
+        <a href="https://wa.me/573145780681?text=Hola%20Carolina,%20quiero%20armar%20un%20parche%20en%20el%20psico-spa." target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.747-2.874-2.512-2.96-2.626-.087-.115-.708-.941-.708-1.795 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.101-.177.211-.077.383.1.173.444.73.954 1.185.657.587 1.21.769 1.383.855.173.087.274.072.376-.043.101-.116.433-.506.548-.68.116-.173.231-.144.39-.087.158.058 1.011.477 1.184.564.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
+            <span>Lanzar Parche</span>
+        </a>
+    </div>
+
+    <style>
+        /* MANTENEMOS TUS ESTILOS BASE Y AÑADIMOS LOS NUEVOS */
+        .price-list { text-align: left; margin-top: 20px; }
+        .price-list p { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 8px 0; display: flex; justify-content: space-between; }
+        .price-list span { color: var(--marker-color); font-weight: 800; }
+        
+        .main-price { font-size: 2.5rem; font-weight: 800; color: var(--marker-color); margin: 15px 0 5px; }
+        .price-detail { display: block; font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+        .desc-parche { min-height: 80px; }
+
+        .parche-calculator {
+            margin-top: 60px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 40px;
+            padding: 40px;
+            border: 1px solid rgba(123, 114, 184, 0.3);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .calc-controls { display: flex; gap: 20px; align-items: center; margin: 25px 0; }
+        #tipo-plan { flex: 1; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.1); outline: none; }
+        
+        .counter { display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.3); padding: 10px 20px; border-radius: 100px; }
+        .counter button { background: none; border: 1px solid white; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+        .counter span { font-weight: 800; font-size: 1.2rem; min-width: 20px; text-align: center; }
+
+        .total-box { font-size: 1.2rem; font-weight: 300; letter-spacing: 1px; text-align: center; }
+        #total-val { font-size: 2.5rem; font-weight: 800; color: var(--marker-color); display: block; }
+
+        /* Estilos base de tu ritual-section que ya tenías */
+        .ritual-section { position: relative; min-height: 100vh; padding: 100px 5%; background: #0a0c0b; overflow: hidden; display: flex; align-items: center; }
+        .nebula-bg { position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(123, 114, 184, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(58, 99, 81, 0.15) 0%, transparent 40%); filter: blur(80px); animation: nebulaMove 20s infinite alternate ease-in-out; z-index: 1; }
+        .section-container { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; }
+        .ritual-header { text-align: center; margin-bottom: 80px; }
+        .pre-title { font-family: 'Playfair Display', serif; font-style: italic; color: var(--purple-mist); letter-spacing: 3px; }
+        .main-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin: 10px 0; letter-spacing: -2px; }
+        .tagline { opacity: 0.6; font-weight: 300; letter-spacing: 1px; }
+        .rituales-carousel { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .glass-card { position: relative; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50px; padding: 60px 40px; text-align: center; transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .glass-card.active { border-color: var(--purple-mist); background: rgba(123, 114, 184, 0.05); }
+        .ritual-symbol { font-size: 3rem; margin-bottom: 25px; }
+        .featured-badge { position: absolute; top: 20px; right: 40px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; background: var(--marker-color); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-weight: 800; }
+        
+        /* Orbe WhatsApp */
+        .whatsapp-orbe { position: fixed; bottom: 40px; left: -250px; z-index: 1000; transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .whatsapp-orbe.show { left: 40px; }
+        .whatsapp-orbe a { display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); padding: 10px 25px 10px 10px; border-radius: 100px; border: 1px solid rgba(181, 255, 218, 0.3); color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .whatsapp-orbe svg { width: 45px; height: 45px; background: #25d366; fill: white; padding: 10px; border-radius: 50%; }
+
+        @media (max-width: 768px) {
+            .whatsapp-orbe.show { left: 50%; transform: translateX(-50%); width: max-content; }
+            .calc-controls { flex-direction: column; }
+        }
+    </style>
+
+    <script>
+        let personas = 2;
+
+        function changeQty(val) {
+            personas += val;
+            if (personas < 2) personas = 2;
+            document.getElementById('qty').innerText = personas;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const planBase = parseInt(document.getElementById('tipo-plan').value);
+            const total = personas * planBase;
+            document.getElementById('total-val').innerText = `$${total.toLocaleString('es-CO')}`;
+        }
+
+        document.getElementById('tipo-plan').addEventListener('change', updateTotal);
+
+        function bookingParche() {
+            const planNombre = document.getElementById('tipo-plan').options[document.getElementById('tipo-plan').selectedIndex].text;
+            const total = document.getElementById('total-val').innerText;
+            const msg = encodeURIComponent(`¡Hola Carolina! ✨ Queremos un parche para ${personas} personas. Elegimos el ${planNombre}. El total es ${total}.`);
+            window.location.href = `https://wa.me/573145780681?text=${msg}`;
+        }
+
+        // Observer para el orbe
+        const waOrbe = document.getElementById('wa-orbe');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => { waOrbe.classList.add('show'); }, 1000);
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(document.getElementById('parche-desconexion'));
+    </script>
+</section>
+
+<section id="galeria-social" class="social-section">
+    <div class="dark-overlay"></div>
+
+    <div class="content-wrapper">
+        <header class="typewriter-header">
+            <h2 id="tw-text-v2"></h2>
+            <span class="cursor-v2">|</span>
+        </header>
+
+        <div class="bento-gallery">
+            <div class="photo-slot" style="background-image: url('imagenes/Imagen-carolina-ruiz-Psico-spa4.jpg');"></div>
+            <div class="photo-slot" style="background-image: url('imagenes/Imagen-carolina-ruiz-Psico-spa5.jpg');"></div>
+            <div class="photo-slot" style="background-image: url('imagenes/Imagen-carolina-ruiz-Psico-spa11.jpg');"></div>
+            <div class="photo-slot" style="background-image: url('imagenes/Imagen-carolina-ruiz-Psico-spa9.jpg');"></div>
+            <div class="photo-slot" style="background-image: url('imagenes/Imagen-carolina-ruiz-Psico-spa7.jpg');"></div>
+            <div class="photo-slot" style="background-image: url('imagenes/Imagen-carolina-ruiz-Psico-spa8.jpg');"></div>
+        </div>
+
+        <div class="experience-keywords">
+            <span class="word">JACUZZI PRIVADO</span>
+            <span class="word-dot">•</span>
+            <span class="word">VISTA INCREÍBLE</span>
+            <span class="word-dot">•</span>
+            <span class="word">PRECIOS ÚNICOS</span>
+            <span class="word-dot">•</span>
+            <span class="word">MANIZALES & VILLAMARÍA</span>
+        </div>
+
+        <div class="social-cta">
+            <p>CONOCE MÁS EN NUESTRAS REDES Y <span class="highlight-text">DÉJATE SORPRENDER</span></p>
+            
+            <div id="neon-shelf-v2" class="neon-shelf">
+                <a href="https://facebook.com/" target="_blank" class="neon-card fb">
+                    <div class="neon-icon">f</div>
+                    <span class="neon-label">Facebook</span>
+                </a>
+                <a href="https://instagram.com/" target="_blank" class="neon-card ig">
+                    <div class="neon-icon">📸</div>
+                    <span class="neon-label">Instagram</span>
+                </a>
+                <a href="https://tiktok.com/" target="_blank" class="neon-card tk">
+                    <div class="neon-icon">♪</div>
+                    <span class="neon-label">TikTok</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .social-section {
+            position: relative;
+            min-height: 100vh;
+            background: #050605;
+            padding: 80px 5%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(58, 99, 81, 0.1) 0%, #050605 80%);
+            z-index: 1;
+        }
+
+        .content-wrapper { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; }
+
+        /* Máquina de escribir V2 */
+        .typewriter-header { 
+            min-height: 100px; 
+            margin-bottom: 40px; 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #tw-text-v2 { 
+            font-size: clamp(1.2rem, 4vw, 2.5rem); 
+            font-weight: 800; 
+            color: var(--white); 
+            margin: 0;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        .cursor-v2 { font-size: 2.5rem; color: var(--marker-color); animation: blink-v2 0.8s infinite; }
+
+        /* Galería */
+        .bento-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 220px);
+            gap: 15px; margin-bottom: 50px;
+        }
+        .photo-slot {
+            background-size: cover; background-position: center; border-radius: 25px;
+            filter: grayscale(100%) brightness(0.5); transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .photo-slot:hover { filter: grayscale(0%) brightness(1); transform: translateY(-5px); border-color: var(--marker-color); }
+        .photo-slot:nth-child(1) { grid-column: span 2; }
+        .photo-slot:nth-child(4) { grid-column: span 2; }
+
+        /* Redes Neón */
+        .neon-shelf {
+            display: flex; justify-content: center; gap: 40px;
+            opacity: 0; transform: translateY(20px); transition: 1s ease;
+        }
+        .neon-shelf.active { opacity: 1; transform: translateY(0); }
+
+        .neon-card { text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .neon-icon {
+            width: 60px; height: 60px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255,255,255,0.05);
+        }
+        .neon-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+
+        .fb:hover .neon-icon { border-color: #1877f2; box-shadow: 0 0 15px #1877f2; color: #1877f2; transform: scale(1.2); }
+        .ig:hover .neon-icon { border-color: #e4405f; box-shadow: 0 0 15px #e4405f; color: #e4405f; transform: scale(1.2); }
+        .tk:hover .neon-icon { border-color: #00f2ea; box-shadow: 0 0 15px #00f2ea; color: #00f2ea; transform: scale(1.2); }
+
+        @keyframes blink-v2 { 50% { opacity: 0; } }
+
+        @media (max-width: 768px) {
+            .bento-gallery { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 150px); }
+            .neon-shelf { gap: 20px; }
+            .typewriter-header { min-height: 120px; }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const copyText = "VEN Y DESCONÉCTATE A UN PRECIO ÚNICO EN MANIZALES...";
+            let charIdx = 0;
+            let hasStarted = false;
+
+            function startTyping() {
+                if (charIdx < copyText.length) {
+                    document.getElementById("tw-text-v2").innerHTML += copyText.charAt(charIdx);
+                    charIdx++;
+                    setTimeout(startTyping, 70);
+                }
+            }
+
+            const secObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasStarted) {
+                        hasStarted = true;
+                        
+                        // Mover WhatsApp de sección anterior a la derecha
+                        const wa = document.getElementById('wa-orbe');
+                        if(wa) {
+                            wa.style.left = 'auto';
+                            wa.style.right = '30px';
+                            wa.style.bottom = '30px';
+                        }
+
+                        // Iniciar efectos
+                        setTimeout(startTyping, 500);
+                        setTimeout(() => {
+                            document.getElementById('neon-shelf-v2').classList.add('active');
+                        }, 3000);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            secObserver.observe(document.getElementById('galeria-social'));
+        })();
+    </script>
+</section>
+<section id="ubicacion-final" class="psico-maps-section">
+    <div id="transport-card-v6" class="transport-toast-v6">
+        <div class="toast-icon-v6">🚘</div>
+        <div class="toast-content-v6">
+            <span class="toast-tag">SERVICIO</span>
+            <strong>NOSOTROS NOS ENCARGAMOS</strong>
+            <p>Tu transporte privado está listo.</p>
+        </div>
+    </div>
+
+    <div class="psico-container">
+        <div class="psico-grid">
+            <div class="psico-info">
+                <span class="psico-label">SAN PEREGRINO, MANIZALES</span>
+                <h2 class="psico-h2">UN PARCHE ÚNICO, MÁS CERCA IMPOSIBLE.</h2>
+                <p class="psico-p-bold">A solo minutos de Manizales, ven a disfrutar de un espacio diseñado para tu renovación. La ciudad queda atrás en un abrir y cerrar de ojos.</p>
+                <p class="psico-p">Nuestro servicio de transporte privado garantiza que tu única preocupación sea relajarte desde el momento en que sales de casa.</p>
+                
+                <div class="psico-action">
+    <a href="https://www.google.com/maps/search/?api=1&query=Finca+La+Clarita+San+Peregrino+Manizales" target="_blank" class="psico-btn">
+        <div class="psico-pulse"></div>
+        <div class="psico-icon-box">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+        </div>
+        <span class="psico-btn-text">VALIDAR UBICACIÓN EN MAPS</span>
+    </a>
+</div>
+
+            <div class="psico-map-visual">
+                <div class="map-heat-base">
+                    <div class="heat-blob"></div>
+                    
+                    <span class="label-origin">Manizales</span>
+                    <span class="label-destination-city">San Peregrino</span>
+
+                    <svg class="map-route-svg" viewBox="0 0 200 200">
+                        <path id="routePathV6" d="M40,170 C80,160 110,100 160,50" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="1.5" stroke-dasharray="4,4" />
+                        <text class="moving-car">
+                            <textPath href="#routePathV6" startOffset="0%">
+                                <tspan dy="10" style="font-size: 24px; display: inline-block; rotate: 140deg;">🚗</tspan>
+                                <animate attributeName="startOffset" from="0%" to="100%" dur="7s" repeatCount="indefinite" />
+                            </textPath>
+                        </text>
+                    </svg>
+
+                    <div class="map-marker-v6">
+                        <span class="marker-label">Carolina Ruiz Spa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .psico-maps-section {
+            position: relative; min-height: 85vh; background: #ffffff;
+            padding: 80px 5%; display: flex; align-items: center; overflow: hidden; z-index: 100;
+        }
+        .psico-container { width: 100%; max-width: 1100px; margin: 0 auto; }
+        .psico-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+
+        .psico-label { color: #bbb; font-weight: 800; letter-spacing: 2px; font-size: 0.7rem; }
+        .psico-h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 900; margin: 15px 0; letter-spacing: -1.5px; line-height: 1.1; color: #000; }
+        
+        /* Párrafo Negro según solicitud */
+        .psico-p-bold { font-size: 1.2rem; color: #000; font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
+        .psico-p { font-size: 1rem; opacity: 0.6; margin-bottom: 35px; color: #000; }
+
+        .psico-btn { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #000; font-weight: 900; font-size: 0.8rem; position: relative; }
+        .psico-icon-box { width: 55px; height: 55px; background: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; }
+        .psico-icon-box svg { width: 22px; fill: #fff; }
+        .psico-pulse { position: absolute; width: 55px; height: 55px; border: 1px solid #000; border-radius: 50%; animation: pulseV6 2s infinite; z-index: 1; }
+
+        /* Mapa Visual */
+        .psico-map-visual { position: relative; height: 450px; border-radius: 40px; overflow: hidden; background: #f9f9f9; border: 1px solid rgba(0,0,0,0.03); }
+        .map-heat-base { position: relative; width: 100%; height: 100%; }
+        
+        .label-origin { position: absolute; bottom: 30px; left: 30px; font-weight: 900; font-size: 0.65rem; text-transform: uppercase; color: #aaa; letter-spacing: 2px; }
+        .label-destination-city { position: absolute; top: 80px; right: 40px; font-weight: 900; font-size: 0.65rem; text-transform: uppercase; color: #aaa; letter-spacing: 2px; }
+
+        .heat-blob { position: absolute; width: 250px; height: 250px; background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%); top: 10%; right: 10%; filter: blur(30px); }
+
+        .map-route-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+        
+        .map-marker-v6 { position: absolute; top: 50px; right: 50px; width: 10px; height: 10px; background: #000; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+        .marker-label { position: absolute; bottom: 18px; right: -10px; white-space: nowrap; background: #000; color: #fff; font-size: 0.6rem; padding: 4px 10px; border-radius: 10px; font-weight: 700; }
+
+        /* Toast */
+        .transport-toast-v6 {
+            position: fixed; top: 40px; right: -450px; background: #fff; padding: 15px 25px; border-radius: 20px;
+            display: flex; align-items: center; gap: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1); z-index: 2200;
+        }
+        .transport-toast-v6.active { right: 40px; }
+        .toast-tag { color: #888; font-size: 0.6rem; font-weight: 900; letter-spacing: 1.5px; }
+        .toast-content-v6 strong { font-size: 0.8rem; color: #000; display: block; }
+        .toast-content-v6 p { margin: 0; font-size: 0.7rem; color: #aaa; }
+
+        @keyframes pulseV6 { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2); opacity: 0; } }
+
+        @media (max-width: 900px) {
+            .psico-grid { grid-template-columns: 1fr; text-align: center; }
+            .psico-btn { justify-content: center; }
+            .transport-toast-v6.active { top: 20px; right: 5%; width: 90%; }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const toast = document.getElementById('transport-card-v6');
+            let isExecuted = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isExecuted) {
+                        isExecuted = true;
+                        setTimeout(() => {
+                            toast.classList.add('active');
+                            // Desaparece exactamente en 3 segundos
+                            setTimeout(() => {
+                                toast.classList.remove('active');
+                            }, 3000);
+                        }, 1000);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(document.getElementById('ubicacion-final'));
+        })();
+    </script>
+</section>
+<footer class="psico-footer-v2">
+    <div class="footer-video-overlay"></div>
+    <video autoplay muted loop playsinline class="footer-bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-moving-purple-light-gradient-background-40032-large.mp4" type="video/mp4">
+    </video>
+
+    <canvas id="fairyParticles"></canvas>
+
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="logo-text">Carolina Ruiz Psico Spa</span>
+                    <span class="logo-tagline">ARMONÍA EN CADA DETALLE</span>
+                </div>
+                <p class="footer-description">Un refugio diseñado para la renovación total bajo estándares de excelencia y bienestar integral.</p>
+            </div>
+
+            <div class="footer-col contact-info">
+                <h3>Contacto Mágico ✨</h3>
+                <ul class="neon-list">
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:+573145780681">+57 314 5780681</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:carolinaruizpsicospa@proton.me">carolinaruizpsicospa@proton.me</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Finca La Clarita, Vía al Tabor, San Peregrino, Manizales</li>
+                </ul>
+            </div>
+
+            <div class="footer-col legal-info">
+                <h3>Legal & Calidad 🛡️</h3>
+                <ul class="neon-list">
+                    <li><i class="fas fa-check-circle"></i> Sujeto a Habeas Data</li>
+                    <li><i class="fas fa-shield-alt"></i> Cumplimiento ISO 9001</li>
+                </ul>
+                <div class="reputation-icons">
+                    <div class="quality-badge">HDB</div>
+                    <div class="quality-badge">ISO 9001</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-social-v2">
+            <a href="#" class="social-item"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/573145780681" class="social-item"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <div class="footer-bottom-v2">
+            <div class="copy-text">
+                &copy; <span id="current-year-v2"></span> Carolina Ruiz Psico Spa. Todos los derechos del Open Source.
+            </div>
+            <div class="dev-info-v2">
+                Web desarrollada por 
+                <span class="sapien-brand">
+                    Red Sapien <i class="fas fa-brain red-brain"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;600&display=swap');
+
+        .psico-footer-v2 {
+            position: relative; padding: 100px 5% 40px; color: #fff;
+            background: #0d0118; font-family: 'Poppins', sans-serif; overflow: hidden;
+        }
+
+        /* Video Background Suavizado */
+        .footer-bg-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 1; opacity: 0.25; filter: saturate(1.5) blur(5px);
+        }
+        .footer-video-overlay {
+            position: absolute; inset: 0; z-index: 2;
+            background: linear-gradient(to bottom, #0d0118, rgba(26, 1, 45, 0.8), #0d0118);
+        }
+
+        #fairyParticles {
+            position: absolute; inset: 0; z-index: 3; pointer-events: none;
+        }
+
+        .footer-container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+
+        /* Estilo Texto Genial */
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: #e0b0ff; text-shadow: 0 0 20px rgba(224, 176, 255, 0.4); }
+        .logo-tagline { display: block; font-size: 0.7rem; letter-spacing: 4px; opacity: 0.6; margin-top: 5px; }
+        
+        .footer-col h3 { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 25px; }
+        .footer-description { font-size: 0.9rem; opacity: 0.7; line-height: 1.8; margin-top: 20px; }
+
+        .neon-list { list-style: none; padding: 0; }
+        .neon-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
+        .neon-list i { color: #e0b0ff; font-size: 1rem; }
+        .neon-list a { color: inherit; text-decoration: none; transition: 0.3s; }
+        .neon-list a:hover { color: #fff; text-shadow: 0 0 10px #e0b0ff; }
+
+        /* Badges Calidad */
+        .reputation-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .quality-badge { 
+            padding: 8px 15px; border: 1px solid rgba(224, 176, 255, 0.3); 
+            border-radius: 8px; font-size: 0.7rem; font-weight: 600; background: rgba(255,255,255,0.05);
+        }
+
+        /* Redes Sociales al final */
+        .footer-social-v2 { 
+            display: flex; justify-content: center; gap: 30px; 
+            margin: 60px 0 30px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .social-item { 
+            font-size: 1.5rem; color: #fff; opacity: 0.5; transition: 0.4s; 
+        }
+        .social-item:hover { opacity: 1; transform: translateY(-5px); color: #e0b0ff; }
+
+        /* RED SAPIEN ESTILO ROJO */
+        .footer-bottom-v2 { 
+            text-align: center; font-size: 0.8rem; opacity: 0.8;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .sapien-brand { color: #ff3e3e; font-weight: 900; letter-spacing: 1px; }
+        .red-brain { color: #ff0000; animation: heartBeat 1.5s infinite; margin-left: 5px; }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px red); }
+            15% { transform: scale(1.3); filter: drop-shadow(0 0 8px red); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid { text-align: center; }
+            .neon-list li { justify-content: center; }
+            .reputation-icons { justify-content: center; }
+        }
+    </style>
+
+    <script>
+        (function() {
+            // Actualizar Año
+            document.getElementById('current-year-v2').textContent = new Date().getFullYear();
+
+            // Partículas de Cuento de Hadas
+            const canvas = document.getElementById('fairyParticles');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.opacity = Math.random();
+                    this.fade = Math.random() * 0.02 + 0.005;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.opacity -= this.fade;
+                    if (this.opacity <= 0) this.reset();
+                }
+                draw() {
+                    ctx.fillStyle = `rgba(224, 176, 255, ${this.opacity})`;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#e0b0ff';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+    </script>
+</footer>
+</body>
+</html>
